@@ -6,8 +6,8 @@ import {
   Heart, Share2, Check, Flame, Award, Sparkles, Package,
   RotateCcw, ChevronRight, ShoppingBag, CreditCard
 } from 'lucide-react';
-import { PRODUCTS } from '../assets/assets';
 import { useCart } from '../context/CartContext';
+import { PRODUCTS } from '../assets/assets';
 
 const Productdetails = () => {
   const { id } = useParams();

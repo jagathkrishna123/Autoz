@@ -2,7 +2,7 @@ import diffuser from "../assets/diffuser.png";
 import exhaust from "../assets/exhaust.png";
 import wheelset from "../assets/wheelset.png";
 import led from "../assets/led.png";
-import plug from "../assets/plug.png";
+import plug from "../assets/Plug.png";
 import steeringwheel from "../assets/steeringwheel.png";
 
 import { 
