@@ -11,7 +11,7 @@ const Banner = () => {
     <section
       ref={ref}
       className="relative w-full bg-zinc-950 overflow-hidden border-t border-zinc-900"
-      style={{ minHeight: '600px' }}
+      style={{ minHeight: '670px' }}
     >
       {/* ── Subtle noise / grid overlay ── */}
       <div
