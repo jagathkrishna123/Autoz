@@ -6,6 +6,8 @@ import {
   Car, Shield, Truck, Sparkles, ArrowRight,
   User, Flame, Sliders, Play, RotateCcw
 } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+
 import bgImage from '../assets/bg.png';
 import bgImage2 from '../assets/bgimage.jpg';
 import Categories from './Categories';
@@ -19,6 +21,8 @@ import benzLogo from '../assets/benz.png';
 import renaultLogo from '../assets/renault.png';
 import mahindraLogo from '../assets/mahindra.png';
 import kiaLogo from '../assets/kia.png';
+import Footer from './Footer';
+import FooterV2 from './FooterV2';
 
 
 // Dummy vehicle database for the selector widget
@@ -939,22 +943,8 @@ className="
       <Banner />
 
       {/* 8. Footer Section */}
-      <footer className="relative z-10 bg-zinc-950 border-t border-zinc-900 py-12 text-zinc-500 text-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <span className="font-display font-black text-lg uppercase tracking-tighter text-white">
-              AUTO<span className="text-brand-orange">Z</span>
-            </span>
-            <span className="text-xs text-zinc-600">| © 2026 AutoZ Tuning Inc. All Rights Reserved.</span>
-          </div>
-          <div className="flex gap-6 text-xs uppercase tracking-wider font-semibold">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Refund Garage</a>
-            <a href="#" className="hover:text-white transition-colors">Support Helpline</a>
-          </div>
-        </div>
-      </footer>
+      {/* <Footer/> */}
+      <FooterV2/>
 
     </div>
   );
