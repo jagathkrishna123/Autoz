@@ -109,7 +109,7 @@ const Productdetails = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="sticky top-28"
+            className="lg:sticky lg:top-28"
           >
             {/* Main Image Card */}
             <div className="relative bg-zinc-900/40 border border-zinc-800 rounded-3xl overflow-hidden aspect-square flex items-center justify-center p-10 group">
