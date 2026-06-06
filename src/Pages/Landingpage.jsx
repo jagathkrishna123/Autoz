@@ -574,13 +574,69 @@ const Landingpage = () => {
   />
 </a>
 
-              <a
-                href="#showcase"
-                className="flex-1 sm:flex-initial bg-zinc-900/60 hover:bg-zinc-800/70 border border-zinc-800 text-zinc-300 hover:text-white font-display font-bold tracking-wide uppercase px-8 py-4 rounded-xl flex items-center justify-center gap-2 transition-all backdrop-blur-md"
-              >
-                <Play className="w-4 h-4 fill-current text-zinc-400 group-hover:text-white" />
-                <span>Showcase Video</span>
-              </a>
+             <a
+  href="#showcase"
+  className="
+    flex-1
+    sm:flex-initial
+
+    bg-zinc-900/60
+    hover:bg-zinc-800/70
+
+    border
+    border-zinc-800
+
+    text-zinc-300
+    hover:text-white
+
+    font-display
+    font-bold
+    uppercase
+
+    text-[10px]
+    sm:text-sm
+
+    tracking-[0.08em]
+    sm:tracking-wide
+
+    px-4
+    sm:px-8
+
+    py-2.5
+    sm:py-4
+
+    rounded-lg
+    sm:rounded-xl
+
+    flex
+    items-center
+    justify-center
+
+    gap-1.5
+    sm:gap-2
+
+    transition-all
+    backdrop-blur-md
+
+    whitespace-nowrap
+    group
+  "
+>
+  <Play
+    className="
+      w-3.5 h-3.5
+      sm:w-4 sm:h-4
+
+      fill-current
+      text-zinc-400
+      group-hover:text-white
+
+      shrink-0
+    "
+  />
+
+  <span>Showcase Video</span>
+</a>
             </motion.div>
 
             {/* Trust and Stats Badge */}
