@@ -233,13 +233,7 @@ const Banner = () => {
   on all parts.
 </motion.p>
 
-        {/* Thin bottom accent line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : {}}
-          transition={{ duration: 0.9, delay: 0.6, ease: 'easeOut' }}
-          className="mt-10 h-[1px] w-48 bg-gradient-to-r from-brand-orange/60 to-transparent origin-left"
-        />
+       
         </div>
       </div>
     </section>

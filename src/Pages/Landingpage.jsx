@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { 
-  Menu, X, Search, ShoppingCart, ChevronRight, 
-  Car, Shield, Truck, Sparkles, ArrowRight, 
+import {
+  Menu, X, Search, ShoppingCart, ChevronRight,
+  Car, Shield, Truck, Sparkles, ArrowRight,
   User, Flame, Sliders, Play, RotateCcw
 } from 'lucide-react';
 import bgImage from '../assets/bg.png';
@@ -44,41 +44,41 @@ const NAV_LINKS = [
 ];
 
 const BRANDS = [
-  { 
-    name: 'BMW', 
-    logo: bmwLogo, 
-    upgrades: 'M Performance Aero, ECU Tunes, Titanium Valved Exhausts', 
-    count: '150+ parts' 
+  {
+    name: 'BMW',
+    logo: bmwLogo,
+    upgrades: 'M Performance Aero, ECU Tunes, Titanium Valved Exhausts',
+    count: '150+ parts'
   },
-  { 
-    name: 'Ferrari', 
-    logo: ferrariLogo, 
-    upgrades: 'Carbon Fiber Diffusers, F1 Alcantara Wheels, Track Aero', 
-    count: '40+ parts' 
+  {
+    name: 'Ferrari',
+    logo: ferrariLogo,
+    upgrades: 'Carbon Fiber Diffusers, F1 Alcantara Wheels, Track Aero',
+    count: '40+ parts'
   },
-  { 
-    name: 'Mercedes-Benz', 
-    logo: benzLogo, 
-    upgrades: 'AMG Styling, Sequential Laser Tail Lights, Forged Wheels', 
-    count: '120+ parts' 
+  {
+    name: 'Mercedes-Benz',
+    logo: benzLogo,
+    upgrades: 'AMG Styling, Sequential Laser Tail Lights, Forged Wheels',
+    count: '120+ parts'
   },
-  { 
-    name: 'Kia', 
-    logo: kiaLogo, 
-    upgrades: 'GT-Line Carbon Styling, Plug & Play Tuners, LED Conversions', 
-    count: '65+ parts' 
+  {
+    name: 'Kia',
+    logo: kiaLogo,
+    upgrades: 'GT-Line Carbon Styling, Plug & Play Tuners, LED Conversions',
+    count: '65+ parts'
   },
-  { 
-    name: 'Mahindra', 
-    logo: mahindraLogo, 
-    upgrades: 'Thar & XUV Upgrades, Premium Lighting, Tuning Modules', 
-    count: '80+ parts' 
+  {
+    name: 'Mahindra',
+    logo: mahindraLogo,
+    upgrades: 'Thar & XUV Upgrades, Premium Lighting, Tuning Modules',
+    count: '80+ parts'
   },
-  { 
-    name: 'Renault', 
-    logo: renaultLogo, 
-    upgrades: 'Sport Hatch Styling, Intake Upgrades, Forged Wheels', 
-    count: '55+ parts' 
+  {
+    name: 'Renault',
+    logo: renaultLogo,
+    upgrades: 'Sport Hatch Styling, Intake Upgrades, Forged Wheels',
+    count: '55+ parts'
   }
 ];
 
@@ -122,7 +122,7 @@ const Landingpage = () => {
     if (!selectedYear || !selectedMake || !selectedModel) return;
 
     setSearchStatus('searching');
-    
+
     // Simulate API search loading
     setTimeout(() => {
       setSearchStatus('found');
@@ -186,21 +186,20 @@ const Landingpage = () => {
 
   return (
     <div className="relative min-h-screen bg-zinc-950 font-sans text-zinc-100 overflow-x-hidden selection:bg-brand-orange selection:text-black">
-      
+
       {/* 1. Header / Navbar */}
-      <motion.nav 
+      <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'py-4 bg-zinc-950/80 backdrop-blur-xl border-b border-white/5 shadow-2xl' 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+            ? 'py-4 bg-zinc-950/80 backdrop-blur-xl border-b border-white/5 shadow-2xl'
             : 'py-6 bg-transparent border-b border-transparent'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            
+
             {/* Logo */}
             <a href="#" className="flex items-center gap-2 group">
               <div className="relative flex items-center justify-center w-10 h-10 bg-gradient-to-tr from-brand-orange to-brand-cyan rounded-xl p-[2px] transition-transform duration-300 group-hover:scale-105">
@@ -216,8 +215,8 @@ const Landingpage = () => {
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center gap-1">
               {NAV_LINKS.map((link) => (
-                <a 
-                  key={link.name} 
+                <a
+                  key={link.name}
                   href={link.href}
                   className="relative px-4 py-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors duration-200 group"
                 >
@@ -229,7 +228,7 @@ const Landingpage = () => {
 
             {/* Navigation Right Actions */}
             <div className="hidden md:flex items-center gap-4">
-              
+
               {/* Search Toggle */}
               <div className="relative flex items-center">
                 <AnimatePresence>
@@ -246,7 +245,7 @@ const Landingpage = () => {
                     />
                   )}
                 </AnimatePresence>
-                <button 
+                <button
                   onClick={() => setIsSearchOpen(!isSearchOpen)}
                   className="p-2 hover:bg-zinc-900 rounded-lg text-zinc-400 hover:text-white transition-colors"
                   aria-label="Search"
@@ -256,7 +255,7 @@ const Landingpage = () => {
               </div>
 
               {/* Shopping Cart Icon with Badge */}
-              <button 
+              <button
                 onClick={() => navigate('/cart')}
                 className="relative p-2 hover:bg-zinc-900 rounded-lg text-zinc-400 hover:text-white transition-colors group"
                 aria-label="Cart"
@@ -270,7 +269,7 @@ const Landingpage = () => {
               </button>
 
               {/* Account icon */}
-              <button 
+              <button
                 className="p-2 hover:bg-zinc-900 rounded-lg text-zinc-400 hover:text-white transition-colors"
                 aria-label="Account"
               >
@@ -278,7 +277,7 @@ const Landingpage = () => {
               </button>
 
               {/* "Find Parts" CTA */}
-              <a 
+              <a
                 href="#garage"
                 className="glow-btn bg-brand-orange text-zinc-950 font-display font-bold text-xs uppercase px-5 py-2.5 rounded-lg hover:bg-brand-orange-light transition-all flex items-center gap-1.5"
               >
@@ -290,7 +289,7 @@ const Landingpage = () => {
             {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center gap-3">
               {/* Simple Cart for Mobile */}
-              <button 
+              <button
                 onClick={() => navigate('/cart')}
                 className="relative p-2 hover:bg-zinc-900 rounded-lg text-zinc-400"
               >
@@ -381,8 +380,8 @@ const Landingpage = () => {
               </div>
 
               {/* Sidebar Footer Details */}
-              <motion.div 
-                variants={sidebarItemVariants} 
+              <motion.div
+                variants={sidebarItemVariants}
                 className="mt-auto pt-6 border-t border-zinc-900 flex flex-col gap-4"
               >
                 <div className="flex items-center gap-3 px-2">
@@ -411,16 +410,16 @@ const Landingpage = () => {
 
       {/* 3. Hero Section */}
       <section className="relative min-h-screen pt-24 md:pt-0 flex items-center justify-center">
-        
+
         {/* Background Image with Dark Gradient Overlays */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${bgImage2})` }}
         >
           {/* Subtle glow and texture overlays */}
           <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/85 to-zinc-900/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950/70" />
-          
+
           {/* Neon Glow accent blur spots */}
           <div className="absolute top-1/4 left-1/3 w-[30vw] h-[30vw] bg-brand-orange/15 rounded-full filter blur-[120px] pointer-events-none" />
           <div className="absolute bottom-1/4 right-1/4 w-[25vw] h-[25vw] bg-brand-cyan/10 rounded-full filter blur-[100px] pointer-events-none" />
@@ -428,24 +427,67 @@ const Landingpage = () => {
 
         {/* Hero Content Container */}
         <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 md:py-24 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
+
           {/* Left Column: Heading and Details */}
           <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
-            
+
             {/* Animated Performance Tag */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-brand-orange/10 border border-brand-orange/30 rounded-full py-1.5 px-4 text-xs font-semibold tracking-wider text-brand-orange uppercase"
+              className="
+    inline-flex
+    items-center
+    gap-1.5
+    sm:gap-2
+
+    bg-brand-orange/10
+    border
+    border-brand-orange/30
+
+    rounded-full
+
+    py-1
+    sm:py-1.5
+
+    px-3
+    sm:px-4
+
+    text-[9px]
+    sm:text-xs
+
+    font-semibold
+
+    tracking-[0.08em]
+    sm:tracking-wider
+
+    text-brand-orange
+
+    uppercase
+
+    whitespace-nowrap
+  "
             >
-              <Sparkles className="w-3.5 h-3.5 text-brand-orange animate-spin-slow" />
-              Ultra-Performance Carbon & Accessories
+              <Sparkles
+                className="
+      w-3 h-3
+      sm:w-3.5 sm:h-3.5
+
+      text-brand-orange
+      animate-spin-slow
+      shrink-0
+    "
+              />
+
+              <span className="truncate">
+                Ultra-Performance Carbon & Accessories
+              </span>
             </motion.div>
 
             {/* Hero Main Heading */}
             <div className="space-y-2">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -475,13 +517,62 @@ const Landingpage = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-wrap gap-4 w-full sm:w-auto"
             >
-              <a
-                href="#shop"
-                className="glow-btn flex-1 sm:flex-initial bg-brand-orange hover:bg-brand-orange-light text-zinc-950 font-display font-bold tracking-wide uppercase px-8 py-4 rounded-xl flex items-center justify-center gap-2 group transition-all"
-              >
-                <span>Shop Catalog</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+             <a
+  href="#shop"
+  className="
+    glow-btn
+
+    flex-1
+    sm:flex-initial
+
+    bg-brand-orange
+    hover:bg-brand-orange-light
+
+    text-zinc-950
+    font-display
+    font-bold
+    uppercase
+
+    text-[10px]
+    sm:text-sm
+
+    tracking-[0.08em]
+    sm:tracking-wide
+
+    px-4
+    sm:px-8
+
+    py-2.5
+    sm:py-4
+
+    rounded-lg
+    sm:rounded-xl
+
+    flex
+    items-center
+    justify-center
+
+    gap-1.5
+    sm:gap-2
+
+    group
+    transition-all
+
+    whitespace-nowrap
+  "
+>
+  <span>Shop Catalog</span>
+
+  <ArrowRight
+    className="
+      w-3.5 h-3.5
+      sm:w-5 sm:h-5
+
+      group-hover:translate-x-1
+      transition-transform
+    "
+  />
+</a>
 
               <a
                 href="#showcase"
@@ -524,10 +615,10 @@ const Landingpage = () => {
             id="garage"
           >
             <div className="relative bg-black/20 backdrop-blur-md border border-white/8 rounded-2xl p-5 sm:p-6 overflow-hidden">
-              
+
               {/* Subtle top-left accent line only */}
               <div className="absolute top-0 left-0 w-16 h-[1px] bg-gradient-to-r from-brand-orange/60 to-transparent" />
-              
+
               {/* Header */}
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-2.5">
@@ -607,7 +698,7 @@ const Landingpage = () => {
                 </form>
               ) : (
                 /* Found accessories simulated results dashboard */
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="space-y-5 text-center py-3"
@@ -654,7 +745,7 @@ const Landingpage = () => {
       <section className="relative z-10 border-t border-zinc-900 bg-zinc-950/60 backdrop-blur-md py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 items-center">
-            
+
             {/* Feature 1 */}
             <div className="flex items-start gap-4 p-4 rounded-2xl hover:bg-zinc-900/30 transition-colors group">
               <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 rounded-xl flex items-center justify-center text-brand-orange group-hover:border-brand-orange/40 transition-colors">
@@ -698,10 +789,10 @@ const Landingpage = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-brand-orange/5 rounded-full filter blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           {/* Header Title Section */}
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -711,7 +802,7 @@ const Landingpage = () => {
               <Car className="w-3.5 h-3.5" />
               Elite Partnerships
             </motion.div>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -720,7 +811,7 @@ const Landingpage = () => {
             >
               Shop By <span className="text-brand-cyan">Car Brand</span>
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -749,9 +840,9 @@ const Landingpage = () => {
                 <div className="flex items-start justify-between gap-4 mb-4">
                   {/* Brand Logo Container */}
                   <div className="w-16 h-16 bg-zinc-950/80 border border-zinc-800 rounded-xl flex items-center justify-center p-3 transition-colors duration-300 group-hover:border-brand-orange/40">
-                    <img 
-                      src={brand.logo} 
-                      alt={`${brand.name} Logo`} 
+                    <img
+                      src={brand.logo}
+                      alt={`${brand.name} Logo`}
                       className="w-full h-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                     />
                   </div>
