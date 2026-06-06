@@ -903,18 +903,10 @@ className="
   w-full
   h-full
   object-contain
+  opacity-100
   transition-all
   duration-300
-
-  opacity-100
-  grayscale-0
-
-  md:grayscale
-  md:opacity-60
-
-  md:group-hover:grayscale-0
-  md:group-hover:opacity-100
-"                    />
+"                   />
                   </div>
                   <span className="text-[11px] font-mono font-bold text-zinc-500 bg-zinc-950 border border-zinc-800 px-2.5 py-1 rounded-md tracking-wider">
                     {brand.count}
