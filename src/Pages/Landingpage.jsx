@@ -7,7 +7,9 @@ import {
   User, Flame, Sliders, Play, RotateCcw
 } from 'lucide-react';
 import bgImage from '../assets/bg.png';
+import bgImage2 from '../assets/bgimage.jpg';
 import Categories from './Categories';
+import Banner from './Banner';
 import { useCart } from '../context/CartContext';
 
 // Brand Logos
@@ -413,7 +415,7 @@ const Landingpage = () => {
         {/* Background Image with Dark Gradient Overlays */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${bgImage})` }}
+          style={{ backgroundImage: `url(${bgImage2})` }}
         >
           {/* Subtle glow and texture overlays */}
           <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/85 to-zinc-900/40" />
@@ -521,72 +523,65 @@ const Landingpage = () => {
             className="lg:col-span-5 w-full"
             id="garage"
           >
-            <div className="relative bg-zinc-950/70 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 sm:p-8 shadow-3xl overflow-hidden group">
+            <div className="relative bg-black/20 backdrop-blur-md border border-white/8 rounded-2xl p-5 sm:p-6 overflow-hidden">
               
-              {/* Futuristic Corner Glowing Indicators */}
-              <div className="absolute top-0 right-0 w-24 h-[1px] bg-gradient-to-r from-transparent to-brand-orange" />
-              <div className="absolute top-0 right-0 w-[1px] h-24 bg-gradient-to-b from-transparent to-brand-orange" />
+              {/* Subtle top-left accent line only */}
+              <div className="absolute top-0 left-0 w-16 h-[1px] bg-gradient-to-r from-brand-orange/60 to-transparent" />
               
-              <div className="relative mb-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-brand-orange">
-                      <Sliders className="w-4 h-4" />
-                    </div>
-                    <h3 className="font-display font-bold text-xl tracking-tight text-white uppercase">Vehicle Matcher</h3>
-                  </div>
-                  <span className="text-[10px] text-zinc-500 font-mono border border-zinc-800 bg-zinc-900/50 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                    V.FIT 4.2
-                  </span>
+              {/* Header */}
+              <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center gap-2.5">
+                  <Sliders className="w-4 h-4 text-brand-orange" />
+                  <h3 className="font-display font-bold text-base tracking-widest text-white/90 uppercase">Vehicle Matcher</h3>
                 </div>
-                <p className="text-xs text-zinc-400 mt-2">Filter premium parts specifically engineered for your car.</p>
+                <span className="text-[9px] text-white/30 font-mono uppercase tracking-widest">V.FIT 4.2</span>
               </div>
 
               {searchStatus !== 'found' ? (
-                <form onSubmit={handleVehicleSearch} className="space-y-4">
+                <form onSubmit={handleVehicleSearch} className="space-y-3">
                   {/* Select Year */}
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Select Year</label>
+                    <label className="block text-[10px] font-semibold uppercase tracking-widest text-white/30 mb-1">Year</label>
                     <select
                       value={selectedYear}
                       onChange={(e) => setSelectedYear(e.target.value)}
                       disabled={searchStatus === 'searching'}
-                      className="w-full bg-zinc-900/90 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all disabled:opacity-50"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white/80 focus:outline-none focus:border-brand-orange/60 focus:bg-white/8 transition-all disabled:opacity-40 appearance-none"
                       required
                     >
-                      <option value="">Choose Year</option>
-                      {VEHICLE_DATA.years.map(y => <option key={y} value={y}>{y}</option>)}
+                      <option value="" className="bg-zinc-900">Choose Year</option>
+                      {VEHICLE_DATA.years.map(y => <option key={y} value={y} className="bg-zinc-900">{y}</option>)}
                     </select>
                   </div>
 
                   {/* Select Make */}
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Select Make</label>
+                    <label className="block text-[10px] font-semibold uppercase tracking-widest text-white/30 mb-1">Make</label>
                     <select
                       value={selectedMake}
                       onChange={(e) => setSelectedMake(e.target.value)}
                       disabled={!selectedYear || searchStatus === 'searching'}
-                      className="w-full bg-zinc-900/90 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all disabled:opacity-50"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white/80 focus:outline-none focus:border-brand-orange/60 focus:bg-white/8 transition-all disabled:opacity-40 appearance-none"
                       required
                     >
-                      <option value="">Choose Make</option>
-                      {VEHICLE_DATA.makes.map(m => <option key={m} value={m}>{m}</option>)}
+                      <option value="" className="bg-zinc-900">Choose Make</option>
+                      {VEHICLE_DATA.makes.map(m => <option key={m} value={m} className="bg-zinc-900">{m}</option>)}
                     </select>
                   </div>
 
                   {/* Select Model */}
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Select Model</label>
+                    <label className="block text-[10px] font-semibold uppercase tracking-widest text-white/30 mb-1">Model</label>
                     <select
                       value={selectedModel}
                       onChange={(e) => setSelectedModel(e.target.value)}
                       disabled={!selectedMake || searchStatus === 'searching'}
-                      className="w-full bg-zinc-900/90 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all disabled:opacity-50"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white/80 focus:outline-none focus:border-brand-orange/60 focus:bg-white/8 transition-all disabled:opacity-40 appearance-none"
                       required
                     >
-                      <option value="">Choose Model</option>
+                      <option value="" className="bg-zinc-900">Choose Model</option>
                       {selectedMake && VEHICLE_DATA.models[selectedMake]?.map(m => (
-                        <option key={m} value={m}>{m}</option>
+                        <option key={m} value={m} className="bg-zinc-900">{m}</option>
                       ))}
                     </select>
                   </div>
@@ -595,17 +590,17 @@ const Landingpage = () => {
                   <button
                     type="submit"
                     disabled={!selectedModel || searchStatus === 'searching'}
-                    className="w-full mt-2 bg-gradient-to-r from-brand-orange to-brand-orange-light text-zinc-950 font-display font-black uppercase text-sm tracking-wider py-4 rounded-xl hover:shadow-[0_0_20px_rgba(255,107,0,0.4)] hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-40 disabled:hover:shadow-none flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full mt-1 bg-brand-orange/90 hover:bg-brand-orange text-zinc-950 font-display font-black uppercase text-xs tracking-widest py-3 rounded-lg hover:shadow-[0_0_18px_rgba(255,107,0,0.35)] active:scale-[0.98] transition-all disabled:opacity-30 disabled:hover:shadow-none flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {searchStatus === 'searching' ? (
                       <>
-                        <div className="w-5 h-5 border-2 border-zinc-950 border-t-transparent rounded-full animate-spin" />
-                        <span>Analyzing Fitment...</span>
+                        <div className="w-4 h-4 border-2 border-zinc-950 border-t-transparent rounded-full animate-spin" />
+                        <span>Scanning...</span>
                       </>
                     ) : (
                       <>
-                        <Car className="w-4 h-4" />
-                        <span>Find Matching Accessories</span>
+                        <Car className="w-3.5 h-3.5" />
+                        <span>Find Matching Parts</span>
                       </>
                     )}
                   </button>
@@ -615,36 +610,36 @@ const Landingpage = () => {
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="space-y-6 text-center py-4"
+                  className="space-y-5 text-center py-3"
                 >
-                  <div className="w-16 h-16 bg-brand-cyan/10 border border-brand-cyan/30 rounded-full flex items-center justify-center mx-auto text-brand-cyan">
-                    <Shield className="w-8 h-8 animate-pulse" />
+                  <div className="w-14 h-14 bg-brand-cyan/10 border border-brand-cyan/25 rounded-full flex items-center justify-center mx-auto text-brand-cyan">
+                    <Shield className="w-7 h-7 animate-pulse" />
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-2xl text-white uppercase tracking-tight">Verified Fitment!</h4>
-                    <p className="text-xs text-brand-cyan mt-1 font-semibold tracking-wider uppercase">OEM Standard Guaranteed</p>
-                    <p className="text-sm text-zinc-400 mt-3 px-4">
-                      We found <strong className="text-white text-base font-bold font-mono">{foundCount}</strong> premium modifications and accessories perfectly matching your:
+                    <h4 className="font-display font-bold text-xl text-white uppercase tracking-tight">Verified Fitment!</h4>
+                    <p className="text-[10px] text-brand-cyan/80 mt-1 font-semibold tracking-widest uppercase">OEM Standard Guaranteed</p>
+                    <p className="text-xs text-white/40 mt-3">
+                      Found <strong className="text-white font-mono">{foundCount}</strong> parts for your:
                     </p>
-                    <p className="text-lg font-display font-black text-brand-orange mt-2 uppercase tracking-wide">
+                    <p className="text-base font-display font-black text-brand-orange mt-1.5 uppercase tracking-wide">
                       {selectedYear} {selectedMake} {selectedModel}
                     </p>
                   </div>
 
-                  <div className="flex gap-3">
+                  <div className="flex gap-2.5">
                     <button
                       onClick={resetVehicleSearch}
-                      className="flex-1 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white text-xs font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                      className="flex-1 bg-white/5 border border-white/10 text-white/50 hover:text-white text-[11px] font-semibold py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                     >
-                      <RotateCcw className="w-3.5 h-3.5" />
-                      Configure Different
+                      <RotateCcw className="w-3 h-3" />
+                      Reset
                     </button>
                     <a
                       href="#shop"
-                      className="flex-1 bg-brand-orange hover:bg-brand-orange-light text-zinc-950 text-xs font-display font-bold uppercase tracking-wider py-3 px-4 rounded-xl flex items-center justify-center gap-1.5 transition-colors"
+                      className="flex-1 bg-brand-orange/90 hover:bg-brand-orange text-zinc-950 text-[11px] font-display font-bold uppercase tracking-wider py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-colors"
                     >
                       View Parts
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3 h-3" />
                     </a>
                   </div>
                 </motion.div>
@@ -787,7 +782,10 @@ const Landingpage = () => {
       {/* 6. Product Categories & Catalogue Section */}
       <Categories />
 
-      {/* 7. Footer Section */}
+      {/* 7. Banner Section */}
+      <Banner />
+
+      {/* 8. Footer Section */}
       <footer className="relative z-10 bg-zinc-950 border-t border-zinc-900 py-12 text-zinc-500 text-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">

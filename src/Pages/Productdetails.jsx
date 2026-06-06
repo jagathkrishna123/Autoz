@@ -123,10 +123,10 @@ const Productdetails = () => {
               }`} />
 
               {/* Corner deco */}
-              <div className="absolute top-0 right-0 w-20 h-[1px] bg-gradient-to-r from-transparent to-brand-orange" />
+              {/* <div className="absolute top-0 right-0 w-20 h-[1px] bg-gradient-to-r from-transparent to-brand-orange" />
               <div className="absolute top-0 right-0 w-[1px] h-20 bg-gradient-to-b from-transparent to-brand-orange" />
               <div className="absolute bottom-0 left-0 w-20 h-[1px] bg-gradient-to-l from-transparent to-brand-cyan" />
-              <div className="absolute bottom-0 left-0 w-[1px] h-20 bg-gradient-to-t from-transparent to-brand-cyan" />
+              <div className="absolute bottom-0 left-0 w-[1px] h-20 bg-gradient-to-t from-transparent to-brand-cyan" /> */}
 
               {product.image ? (
                 <img
