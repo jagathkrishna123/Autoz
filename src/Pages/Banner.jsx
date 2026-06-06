@@ -11,7 +11,7 @@ const Banner = () => {
     <section
       ref={ref}
       className="relative w-full bg-zinc-950 overflow-hidden border-t border-zinc-900"
-      style={{ minHeight: '480px' }}
+      style={{ minHeight: '600px' }}
     >
       {/* ── Subtle noise / grid overlay ── */}
       <div
@@ -64,7 +64,7 @@ const Banner = () => {
         <img
           src={carToRight}
           alt="High-performance sports car facing right"
-          className="w-full h-full object-contain object-bottom select-none z-10"
+          className="w-full h-full object-contain object-bottom select-none"
           draggable={false}
           style={{ opacity: 0.97 }}
         />
@@ -126,35 +126,112 @@ const Banner = () => {
           className="flex items-center gap-4 mt-8"
         >
           {/* Primary pill button */}
-          <a
-            href="#shop"
-            className="glow-btn inline-flex items-center gap-2.5 bg-brand-orange hover:bg-brand-orange-light text-zinc-950 font-display font-black uppercase text-xs tracking-widest px-7 py-3.5 rounded-full transition-all hover:shadow-[0_0_22px_rgba(255,107,0,0.45)] active:scale-[0.97]"
-          >
-            <Zap className="w-3.5 h-3.5" />
-            Shop Parts
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
+         <a
+  href="#shop"
+  className="
+    glow-btn
+    inline-flex
+    items-center
+    gap-2
+
+    bg-brand-orange
+    hover:bg-brand-orange-light
+
+    text-zinc-950
+    font-display
+    font-black
+    uppercase
+
+    text-[10px]
+    sm:text-xs
+
+    tracking-[0.12em]
+    sm:tracking-widest
+
+    px-4
+    sm:px-7
+
+    py-2.5
+    sm:py-3.5
+
+    rounded-full
+
+    transition-all
+    hover:shadow-[0_0_22px_rgba(255,107,0,0.45)]
+    active:scale-[0.97]
+  "
+>
+  <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+
+  <span className="whitespace-nowrap">
+    Shop Parts
+  </span>
+
+  <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+</a>
 
           {/* Ghost link */}
           <a
-            href="#garage"
-            className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white text-xs font-semibold uppercase tracking-widest transition-colors group"
-          >
-            Fit my vehicle
-            <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-          </a>
+  href="#garage"
+  className="
+    inline-flex
+    items-center
+    gap-1
+
+    text-zinc-400
+    hover:text-white
+
+    text-[10px]
+    sm:text-xs
+
+    font-semibold
+    uppercase
+
+    tracking-[0.12em]
+    sm:tracking-widest
+
+    transition-colors
+    group
+
+    whitespace-nowrap
+  "
+>
+  Fit my vehicle
+
+  <ArrowRight
+    className="
+      w-2.5 h-2.5
+      sm:w-3 sm:h-3
+      group-hover:translate-x-1
+      transition-transform
+    "
+  />
+</a>
         </motion.div>
 
         {/* Fine-print disclaimer */}
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-5 text-[10px] text-zinc-600 max-w-xs leading-relaxed"
-        >
-          Free express shipping on orders over $150 · 30-day fitment guarantee
-          on all parts.
-        </motion.p>
+  initial={{ opacity: 0 }}
+  animate={isInView ? { opacity: 1 } : {}}
+  transition={{ duration: 0.6, delay: 0.7 }}
+  className="
+    mt-4
+    sm:mt-5
+
+    text-[9px]
+    sm:text-[10px]
+
+    text-zinc-600
+
+    max-w-[220px]
+    sm:max-w-xs
+
+    leading-relaxed
+  "
+>
+  Free express shipping on orders over $150 · 30-day fitment guarantee
+  on all parts.
+</motion.p>
 
         {/* Thin bottom accent line */}
         <motion.div
