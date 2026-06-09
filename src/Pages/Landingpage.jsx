@@ -883,56 +883,99 @@ const Landingpage = () => {
           </div>
 
           {/* Brands Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {BRANDS.map((brand, index) => (
-              <motion.div
-                key={brand.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="group relative bg-zinc-900/30 hover:bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700/80 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-xl"
-              >
-                {/* Accent glow on hover */}
-                <div className="absolute -right-12 -bottom-12 w-28 h-28 bg-brand-cyan/10 rounded-full filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+         {/* Mobile Slider */}
+<div className="sm:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar">
+  {BRANDS.map((brand, index) => (
+    <motion.div
+      key={brand.name}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -5 }}
+      className="group relative min-w-[85%] snap-center bg-zinc-900/40 border border-zinc-800 rounded-2xl p-5 overflow-hidden shadow-xl"
+    >
+      {/* Glow */}
+      <div className="absolute -right-12 -bottom-12 w-28 h-28 bg-brand-cyan/10 rounded-full blur-xl opacity-100 pointer-events-none" />
 
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  {/* Brand Logo Container */}
-                  <div className="w-16 h-16 bg-zinc-950/80 border border-zinc-800 rounded-xl flex items-center justify-center p-3 transition-colors duration-300 group-hover:border-brand-orange/40">
-                    <img
-                      src={brand.logo}
-                      alt={`${brand.name} Logo`}
-className="
-  w-full
-  h-full
-  object-contain
-  opacity-100
-  transition-all
-  duration-300
-"                   />
-                  </div>
-                  <span className="text-[11px] font-mono font-bold text-zinc-500 bg-zinc-950 border border-zinc-800 px-2.5 py-1 rounded-md tracking-wider">
-                    {brand.count}
-                  </span>
-                </div>
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="w-14 h-14 bg-zinc-950 border border-zinc-800 rounded-xl flex items-center justify-center p-3">
+          <img
+            src={brand.logo}
+            alt={`${brand.name} Logo`}
+            className="w-full h-full object-contain"
+          />
+        </div>
 
-                <div>
-                  <h3 className="font-display font-black text-xl text-white uppercase tracking-tight mb-2 group-hover:text-brand-orange transition-colors">
-                    {brand.name}
-                  </h3>
-                  <p className="text-xs text-zinc-400 font-light leading-relaxed">
-                    {brand.upgrades}
-                  </p>
-                </div>
+        <span className="text-[10px] font-mono font-bold text-zinc-500 bg-zinc-950 border border-zinc-800 px-2 py-1 rounded-md tracking-wider">
+          {brand.count}
+        </span>
+      </div>
 
-                <div className="mt-6 pt-4 border-t border-zinc-900/60 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-zinc-400 group-hover:text-white transition-colors">
-                  <span>Explore Catalog</span>
-                  <ChevronRight className="w-4 h-4 text-brand-orange group-hover:translate-x-1 transition-transform" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      <div>
+        <h3 className="font-display font-black text-lg text-white uppercase tracking-tight mb-2">
+          {brand.name}
+        </h3>
+
+        <p className="text-xs text-zinc-400 leading-relaxed">
+          {brand.upgrades}
+        </p>
+      </div>
+
+      <div className="mt-5 pt-4 border-t border-zinc-900 flex items-center justify-between text-[11px] font-semibold uppercase tracking-wider text-zinc-300">
+        <span>Explore</span>
+        <ChevronRight className="w-4 h-4 text-brand-orange" />
+      </div>
+    </motion.div>
+  ))}
+</div>
+
+{/* Desktop Grid */}
+<div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-6">
+  {BRANDS.map((brand, index) => (
+    <motion.div
+      key={brand.name}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -5 }}
+      className="group relative bg-zinc-900/30 hover:bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700/80 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-xl"
+    >
+      {/* Accent glow on hover */}
+      <div className="absolute -right-12 -bottom-12 w-28 h-28 bg-brand-cyan/10 rounded-full filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="w-16 h-16 bg-zinc-950/80 border border-zinc-800 rounded-xl flex items-center justify-center p-3 transition-colors duration-300 group-hover:border-brand-orange/40">
+          <img
+            src={brand.logo}
+            alt={`${brand.name} Logo`}
+            className="w-full h-full object-contain opacity-100 transition-all duration-300"
+          />
+        </div>
+
+        <span className="text-[11px] font-mono font-bold text-zinc-500 bg-zinc-950 border border-zinc-800 px-2.5 py-1 rounded-md tracking-wider">
+          {brand.count}
+        </span>
+      </div>
+
+      <div>
+        <h3 className="font-display font-black text-xl text-white uppercase tracking-tight mb-2 group-hover:text-brand-orange transition-colors">
+          {brand.name}
+        </h3>
+
+        <p className="text-xs text-zinc-400 font-light leading-relaxed">
+          {brand.upgrades}
+        </p>
+      </div>
+
+      <div className="mt-6 pt-4 border-t border-zinc-900/60 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-zinc-400 group-hover:text-white transition-colors">
+        <span>Explore Catalog</span>
+        <ChevronRight className="w-4 h-4 text-brand-orange group-hover:translate-x-1 transition-transform" />
+      </div>
+    </motion.div>
+  ))}
+</div>
         </div>
       </section>
 
